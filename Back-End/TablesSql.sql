@@ -5,10 +5,11 @@ DROP TABLE IF EXISTS `Case_Shopper_Orders`;
 DROP TABLE IF EXISTS `Case_Shopper_Clients`;
 
 DROP TABLE IF EXISTS `Case_Shopper_Products`;
+--------------- //  //  // ------------------
 
 CREATE TABLE `Case_Shopper_Clients` (
-	  id INT NOT NULL PRIMARY KEY,
-    name VARCHAR(255) UNIQUE
+	  id VARCHAR(255) NOT NULL PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE `Case_Shopper_Products` (
@@ -19,12 +20,12 @@ CREATE TABLE `Case_Shopper_Products` (
 );
 
 CREATE TABLE `Case_Shopper_Orders`(
-  id INT NOT NULL PRIMARY KEY,
-  order_data DATE,
-  delivery_date DATE,
-  qty INT,
-  fk_client INT,
-  fk_product INT,
+  id VARCHAR(255) NOT NULL PRIMARY KEY,
+  order_data DATE NOT NULL,
+  delivery_date DATE NOT NULL,
+  qty INT NOT NULL,
+  fk_client VARCHAR(255) NOT NULL,
+  fk_product INT NOT NULL,
   FOREIGN KEY (fk_client) REFERENCES `Case_Shopper_Clients` (id),
   FOREIGN KEY (fk_product) REFERENCES `Case_Shopper_Products` (id)
 );
