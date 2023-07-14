@@ -9,7 +9,9 @@ DROP TABLE IF EXISTS `Case_Shopper_Products`;
 
 CREATE TABLE `Case_Shopper_Clients` (
 	  id VARCHAR(255) NOT NULL PRIMARY KEY,
-    name VARCHAR(255) UNIQUE NOT NULL
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE `Case_Shopper_Products` (
@@ -61,3 +63,5 @@ INSERT INTO `Case_Shopper_Products` VALUES
 (28, 'Suco Del Valle 100% Laranja 1L', 9.99, 456),
 (29, 'Biscoito Recheado Milkshake de Morango Oreo 90G', 3.99, 456),
 (30, 'Cerveja Duplo Malte Puro Malte Br',3.99,500);
+
+SELECT * FROM `Case_Shopper_Clients`;
