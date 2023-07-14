@@ -15,15 +15,14 @@ export class ClientDatabase extends BaseDatabase {
    
   };
   // ------ /// ------------ /// --------- ///- ----- //
-  public getClientByName = async (name:string):Promise<TClient> => {
+  public getClientByEmail = async (email:string):Promise<TClient> => {
     try{
-      const client = await ClientDatabase.connection("Case_Shopper_Clients").where("name",name)
+      const client = await ClientDatabase.connection("Case_Shopper_Clients").where("email",email)
       return client[0]  
 
     }catch(error:any){
       throw new CustomError(error.statusCode, error.message)
     }
-
   };
   // ------ /// ------------ /// --------- ///- ----- //
 

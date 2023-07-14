@@ -8,6 +8,17 @@ export interface TProduct {
 // -- -- -- -- // -- -- -- -- // -- -- -- -- //
 export interface TClient {
   id: string,
+  email:string,
   name: string,
-  
-}
+  password: string 
+};
+export interface InputClient {
+  email: string,
+  name: string,
+  password: string
+};
+export interface ClientLogin {
+  email: string,
+  password: string
+};
+// -- -- -- -- // -- -- -- -- // -- -- -- -- //
