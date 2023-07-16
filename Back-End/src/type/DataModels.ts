@@ -22,3 +22,30 @@ export interface ClientLogin {
   password: string
 };
 // -- -- -- -- // -- -- -- -- // -- -- -- -- //
+
+export interface ProductsOrder{ 
+  productId:number, 
+  qty:number
+}
+export interface OrderInput {
+  delivery_date: string,
+  clientId: string,
+  products:ProductsOrder[]
+};
+
+export interface OrderDTO {
+  id: string,
+  order_date: string,
+  delivery_date: string,
+  qty: number,
+  fk_client: string,
+  fk_product: number,
+}
+
+// -- -- -- -- // -- -- -- -- // -- -- -- -- //
+export interface DateVerifyOutput {
+  validDate: boolean,
+  codeErr: number,
+  errorMsg: string,
+  DMA:Array<number>
+}
