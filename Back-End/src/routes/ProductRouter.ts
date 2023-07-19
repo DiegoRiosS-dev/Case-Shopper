@@ -7,3 +7,4 @@ export const productRouter = express.Router();
 const productController = new ProductController();
 
 productRouter.get("/all", (req, res) => productController.getAllProduct(req, res));
+productRouter.patch("/stock",(req, res) => productController.updateProductStock(req, res));
