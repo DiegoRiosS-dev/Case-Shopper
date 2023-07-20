@@ -1,6 +1,6 @@
 import { CustomError } from "../error/CustomError";
-import { IdGenerator } from "../services/idGenerator";
-import { ClientLogin, InputClient, TClient } from "../type/DataModels";
+import { IdGenerator } from "../services/IdGenerator";
+import { ClientLogin, InputClient } from "../type/DataModels";
 import * as ClientErr from "../error/ClientCustomErr"
 import { ClientDatabase } from "../data/ClientDatabase";
 

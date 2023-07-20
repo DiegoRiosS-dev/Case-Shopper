@@ -23,8 +23,8 @@ CREATE TABLE `Case_Shopper_Products` (
 
 CREATE TABLE `Case_Shopper_Orders`(
   id VARCHAR(255) NOT NULL PRIMARY KEY,
-  order_data DATE NOT NULL,
-  delivery_date DATE NOT NULL,
+  order_date VARCHAR(255) NOT NULL,
+  delivery_date VARCHAR(255) NOT NULL,
   qty INT NOT NULL,
   fk_client VARCHAR(255) NOT NULL,
   fk_product INT NOT NULL,
@@ -65,3 +65,16 @@ INSERT INTO `Case_Shopper_Products` VALUES
 (30, 'Cerveja Duplo Malte Puro Malte Br',3.99,500);
 
 SELECT * FROM `Case_Shopper_Clients`;
+
+SELECT * FROM `Case_Shopper_Orders`;
+
+
+SELECT Case_Shopper_Orders.id,
+  Case_Shopper_Products.name,
+  Case_Shopper_Orders.qty,
+  order_date,
+  delivery_date
+FROM Case_Shopper_Orders INNER JOIN Case_Shopper_Products
+  ON fk_product = Case_Shopper_Products.id
+WHERE fk_client = "76df2566-0b96-4021-b347-4e95ba31b6f4"
+ORDER BY Case_Shopper_Orders.delivery_date;
