@@ -20,5 +20,16 @@ export class OrderController {
     }catch(error:any){
       res.status(error.statusCode || 400).send(error.message || error.sqlMessage);
     }
+  };
+
+  public getOrdersByClientId = async (req:Request, res:Response):Promise<void> => {
+    try{
+      const clientId = req.params.clientId;
+
+      const orders = await this.orderBusiness.getOrdersByClientId(clientId)
+      res.status(200).send(orders)
+    }catch(error:any){
+      res.status(error.statusCode || 400).send(error.message || error.sqlMessage);
+    }
   }
 }

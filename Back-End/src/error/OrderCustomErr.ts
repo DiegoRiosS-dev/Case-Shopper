@@ -2,7 +2,18 @@ import { CustomError } from "./CustomError";
 
 export class InvalidInputOrder extends CustomError{ 
   constructor(){
-    super(422, "Verifique se o body foi preenchido corretamente")
+    super(422,`Preencha o body de forma correta!
+     ex:
+     {
+        "clientId": "id",
+        "delivery_date": "dd/mm/aaaa",
+        "products":[
+          {"productId": id, "qty": 1},
+          {"productId": id, "qty": 1},
+          {"productId": id, "qty": 1}
+        ]
+      }
+    `)
   }
 };
 // --- -- -- -- -- -- -- // -- -- -- ---  //

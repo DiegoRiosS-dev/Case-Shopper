@@ -42,6 +42,13 @@ export interface OrderDTO {
   fk_product: number,
 }
 
+export interface GetOrdersClientOutPut {
+  id: string,
+  name: string,
+  qty: string,
+  order_date: string,
+  delivery_date: string
+}
 // -- -- -- -- // -- -- -- -- // -- -- -- -- //
 export interface DateVerifyOutput {
   validDate: boolean,
