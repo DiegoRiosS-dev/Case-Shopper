@@ -1,11 +1,11 @@
 import * as style from "./styleButton"
 
 
-const Button = ({children}) => {
+const Button = ({children,onClick}) => {
 
   return(
     <style.DivButton>
-      <style.Button >{children}</style.Button>
+      <style.Button onClick={ onClick }>{children}</style.Button>
     </style.DivButton>
   )
 }

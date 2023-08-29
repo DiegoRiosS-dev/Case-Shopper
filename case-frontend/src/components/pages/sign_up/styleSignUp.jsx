@@ -6,12 +6,12 @@ export const LinkToLogin = styled.span `
   margin: 0 auto;
   cursor: pointer;
   max-width: 155px;
-  
 `
-
+// --- --- -- -- -- -- //
 export const TitleSignUp = styled.h1 `
   text-align: center;
 `
+// --- --- -- -- -- -- //
 export const Div_Control_SignUp = styled.div `
   max-width: 1220px;
   width: 80%;
@@ -29,6 +29,7 @@ export const Div_Control_SignUp = styled.div `
   
   border-top: 2px solid #00000095;
   box-shadow: 1px 3px 3px #1d1d1d;
+  // --- --- -- -- -- -- //
   ${LinkToLogin}:hover{
     color: #db7c07;
     text-shadow:  1px 1px 2px black;
@@ -39,7 +40,7 @@ export const Div_Control_SignUp = styled.div `
     border: none;
     box-shadow: none;
     padding: 0;
-  
+    // --- --- -- -- -- -- //
     h1{
       margin-top: 40px;
       font-size: 28px;

@@ -8,10 +8,11 @@ export const LinkCreateAccount = styled.span `
   max-width: 155px;
   
 `
-
+// --- --- -- -- -- -- //
 export const TitleLogin = styled.h1 `
   text-align: center;
 `
+// --- --- -- -- -- -- //
 export const Div_Control_Login = styled.div `
   max-width: 1220px;
   width: 80%;
@@ -29,6 +30,7 @@ export const Div_Control_Login = styled.div `
   
   border-top: 2px solid #00000095;
   box-shadow: 1px 3px 3px #1d1d1d;
+  // --- --- -- -- -- -- //
   ${LinkCreateAccount}:hover{
     color: #db7c07;
     text-shadow:  1px 1px 2px black;
@@ -39,19 +41,10 @@ export const Div_Control_Login = styled.div `
     border: none;
     box-shadow: none;
     padding: 0;
-  
+    // --- --- -- -- -- -- //
     h1{
       margin-top: 40px;
       font-size: 28px;
     }
   }
 `
-// export const ContainerLoginPage = styled.div `
-//   flex: 1;
-//   min-height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   @media (max-width: 600px) {
-//     background-size: contain;
-//   }
-// `
