@@ -137,9 +137,12 @@ export const Product_Control = styled.div `
   }
   @media (max-width: 400px){
     display: grid;
+    grid-template-columns: repeat(auto-fill,140px);
+  }
+  @media (max-width: 340px){
+    display: grid;
     grid-template-columns: repeat(auto-fill,120px);
     gap: 5px;
-    
   }
 `// --- --- ---- //// --- --- ---- //
 export const Home_Section_Control = styled.div `

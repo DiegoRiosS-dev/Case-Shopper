@@ -1,24 +1,47 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from '../../header/Header';
 import Button from "../../button/Button"
 import * as style from './styleCart';
 import { cartFunctions } from '../../../assets/cartFunctions';
+import Input from '../../form/Input';
+import { useSubmitDataForm } from '../../hoks/useSubmitFormDate';
+// import { Url } from "../../../assets/url";
+
 
 export const CartPage = () => {
   const navigate = useNavigate();
-  const {sendOrder, updateQuantProduct, clearCart, productList }  = cartFunctions();
-  const [totalPrice, setTotalPrice] = useState(0)
+  const {updateQuantProduct, clearCart, sendOrder,  productList, orderMessage }  = cartFunctions();
+  const [dateOrder, onChange, clearInput] = useSubmitDataForm( {delivery_date: ""} );
+  // const [orderMessage, setOrderMessage] = useState(null);
   
-  const productPrices = productList.map( prod => prod.qty * prod.price)
-  // for( let p of productPrices){
+  const productOrder = productList.map( (p) => {
+    return {productId: p.id, qty: p.qty}
+  }); // -- --//-- -- //
+  let calculate = 0; 
+  if(productList.length > 0 ){
+    productList.forEach( (prod) => {
+      calculate = calculate + (prod.price * prod.qty);
+    });
+  }; // -- --//-- -- //
 
-  // }
   return (
   <React.Fragment>
     <Header/>
     <style.TitleCart>Carrinho</style.TitleCart>
-    <p>Valor total {totalPrice}</p>
+    {productList.length > 0 &&  <style.Total_Amount>Valor total {calculate.toFixed(2)}</style.Total_Amount>}
+    <style.Form_Cart>
+      <Input
+        type = {"date"}
+        text = {"Data de entrega:"}
+        name = {"delivery_date"}
+        placeholder = {"dia / mes / ano"}
+        value = {dateOrder.delivery_date}
+        handleOnChange = { onChange }
+      />
+    </style.Form_Cart>
+    {orderMessage !== null && <style.OrderMessage>{orderMessage}</style.OrderMessage>}
     <style.Cart_Page_Control> {productList.length > 0 ? 
     productList.map( (prod) => {
     return (
@@ -26,7 +49,7 @@ export const CartPage = () => {
         <style.Div_Product>
           <style.Product>{prod.qty}</style.Product>
           <style.Product >{prod.name}</style.Product>
-          <style.Product>R$: {prod.price * prod.qty}</style.Product>
+          <style.Product>R$: {(prod.price * prod.qty).toFixed(2)}</style.Product>
         </style.Div_Product>
         <style.Div_Buttons>
           <style.Btn_Input type='button' value="+" onClick={ () => updateQuantProduct(prod,"+")}/>
@@ -39,8 +62,8 @@ export const CartPage = () => {
     }</style.Cart_Page_Control>
     {productList.length > 0 &&
     <style.Btn_Control_ConfirmORClear> 
-      <Button type="button" onClick={ () => clearCart()}>Limpar Carrinho</Button> 
-      <Button type="button" onClick={ () => sendOrder()}>Finalizar pedido</Button>  
+      <Button type="button" onClick={ () => [clearCart(),clearInput()]}>Limpar Carrinho</Button> 
+      <Button type="button" onClick={ () => sendOrder(dateOrder.delivery_date,productOrder,clearInput)}>Finalizar pedido</Button>  
     </style.Btn_Control_ConfirmORClear>  
     }
   </React.Fragment>  

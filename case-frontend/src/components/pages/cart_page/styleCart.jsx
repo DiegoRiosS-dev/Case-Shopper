@@ -1,5 +1,26 @@
 import styled from "styled-components";
 
+
+export const Form_Cart = styled.form `
+  width: 250px;
+  margin: 0 auto;
+`
+export const OrderMessage = styled.p `
+  font-size: 22px;
+  text-shadow: 1px 2px 5px #00000083;
+  text-align: center;
+  width: 400px;
+  margin: 0 auto;
+  @media (max-width: 500px){
+    font-size: 18px;
+    width: 250px;
+  }
+`
+export const Total_Amount = styled.p `
+  font-size: 30px;
+  text-shadow: 1px 2px 5px #00000083;
+  text-align: center;
+`// --- --- ---- //// --- --- ---- //
 export const Btn_Control_ConfirmORClear = styled.div `
   display: flex;
   justify-content: center;
@@ -86,7 +107,9 @@ export const Div_Control_Product = styled.div `
 `// --- --- ---- //// --- --- ---- //
 export const Cart_Page_Control = styled.div `
   width: 100%;
-  height: 60vh;
+  margin-top: 10px;
+  min-height: 40vh;
+  max-height: 55vh;
   margin-bottom: 10px;
   padding: 20px 0;
   overflow-y: scroll;

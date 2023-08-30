@@ -1,17 +1,21 @@
 import React, {useState, useEffect} from "react";
+import axios from "axios";
+import { Url } from "./url";
 
 export const cartFunctions = () => {
   const [addProductAlert, setAddProductAlert] = useState({message: null, productId: ""});
   const [count, setCount] = useState(0);
   const [productList, setProductList] = useState([]);
+  const [orderMessage, setOrderMessage] = useState(null);
   const cartList = JSON.parse(localStorage.getItem("cartProduct"));
-
-
+  
+  
+ 
   useEffect( () => {
     if(cartList !== null && cartList !== undefined){
       setProductList(cartList)
     }
-    setTimeout( () => setAddProductAlert({message: null, productId: ""}),2000);
+    setTimeout( () => setAddProductAlert({message: null, productId: ""}),1000);
   },[count]);
   // --- --- // --- --- --- //
 
@@ -37,12 +41,12 @@ export const cartFunctions = () => {
     }
     localStorage.setItem("cartProduct",JSON.stringify(newArray))
     setCount(count + 1)
-  };// ------ ------- ------- ------- ---------- //
+  }; // ------ ------- ------- ------- ---------- //
 
   const clearCart = () => {
     localStorage.removeItem("cartProduct")
     setProductList([])
-  };// --- --- // --- --- --- //
+  }; // --- --- // --- --- --- //
 
   const updateQuantProduct = (product,operator) => {
     let newArray = [...productList]
@@ -66,20 +70,41 @@ export const cartFunctions = () => {
     };
     localStorage.setItem("cartProduct",JSON.stringify(newArray))
     setCount(count + 1)
-  };// --- --- // --- --- --- //
-
-  const sendOrder = () => {
-    console.log("funcionando o finalizar pedido")
-    const token = localStorage.getItem("token")
+  }; // --- --- // --- --- --- //
+  const sendOrder = (date,productOrder,clearInput) => {
+    const token = localStorage.getItem("token");
     if(!token) {
       return alert("Você precisa de uma Conta para finalizar o pedido")
-    }
-  };// --- --- // --- --- --- //
+    };
+    let dateConvert = "";
+    if(date.length === 10 ){
+      const yaer = `${date[0]}${date[1]}${date[2]}${date[3]}`
+      const month = `${date[5]}${date[6]}`
+      const day = `${date[8]}${date[9]}`
+      dateConvert = `${day}/${month}/${yaer}`
+    }else{
+      return alert("Preencha a data de entrega")
+    };
+    console.log(dateConvert)
+    axios.post(Url.createOrder,{
+      clientId: token,
+      delivery_date: dateConvert,
+      products: productOrder
+    }).then( (response) => {
+      setOrderMessage(response.data.message)
+      clearCart()
+      clearInput()
+    }).catch( (error) => {
+      setOrderMessage(error.response.data)
+    });
+  }; // --- --- // --- --- --- //
+
   return {
     productList,
     addProductAlert,
+    orderMessage,
+    sendOrder,
     setAddProductAlert,
-    sendOrder, 
     updateQuantProduct, 
     clearCart, 
     addProductToCart

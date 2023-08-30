@@ -3,7 +3,7 @@ import { useRequestData } from '../../hoks/useRequestData';
 import { useNavigate } from "react-router-dom";
 import * as style from "./styleHome";
 import Header from '../../header/Header';
-import { Url } from "../../../assets/url"
+import { Url } from "../../../assets/url";
 import { cartFunctions } from '../../../assets/cartFunctions';
 
 export const HomePage = () => {
@@ -16,10 +16,14 @@ export const HomePage = () => {
   const products = data && !isLoad && data.map( (product) => {
     return (
       <style.Product_Card key={product.id}>
-        <style.ProductQty>Q: <b>{product.qty_stock}</b></style.ProductQty>
+        {product.qty_stock === 0 ? <style.ProductQty>Estoque zerado</style.ProductQty> : 
+          <style.ProductQty>Q: <b>{product.qty_stock}</b></style.ProductQty>
+        }
         <style.Product>{product.name}</style.Product>
         <style.Product>R$: {product.price} ;</style.Product>
-        <style.ProductButton type="button" value="Compar"  onClick={ () => addProductToCart(product)}/>
+        {product.qty_stock === 0 ? <React.Fragment></React.Fragment> :
+          <style.ProductButton type="button" value="Compar"  onClick={ () => addProductToCart(product)}/>
+        }        
         {addProductAlert !== null && addProductAlert.message && addProductAlert.productId === product.id &&  
           <style.Product>{addProductAlert.message}</style.Product> 
         }

@@ -14,7 +14,7 @@ const Input = ({type, text, name, placeholder, handleOnChange, value}) => {
 
   return(
     <style.DivInput>
-      <style.InputLabel htmlFor="name">{text}</style.InputLabel>
+      <style.InputLabel htmlFor={name}>{text}</style.InputLabel>
       { name === "password" ? 
       <>
         <style.showPassword
@@ -28,6 +28,7 @@ const Input = ({type, text, name, placeholder, handleOnChange, value}) => {
         placeholder = {placeholder}
         onChange = {handleOnChange}
         value = {value}
+        required
         />
       </>
        : 
@@ -38,6 +39,7 @@ const Input = ({type, text, name, placeholder, handleOnChange, value}) => {
       placeholder = {placeholder}
       onChange = {handleOnChange}
       value = {value}
+      required
     />}
       
     </style.DivInput>

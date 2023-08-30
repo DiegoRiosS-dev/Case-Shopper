@@ -7,7 +7,7 @@ export const ProfilePage = () => {
   const navigate = useNavigate();
 
   useProtectedPage()
- 
+  // login de teste feijao@22.com Calamanaia
   return (
   <React.Fragment>
     <Header/>
