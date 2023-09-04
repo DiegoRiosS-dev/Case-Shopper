@@ -23,8 +23,7 @@ export const Login = () => {
       .post(Url.login,dataLogin)
       .then( (response) => {
         localStorage.setItem("token",response.data.token)
-        console.log(response.data.token)
-        navigate("/home")
+        navigate("/")
       }).catch( (error) => {
         alert(error.response.data)
       })

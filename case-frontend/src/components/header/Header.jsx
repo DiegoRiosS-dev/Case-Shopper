@@ -32,8 +32,8 @@ const Header = () => {
           <style.Nav_List>
             <style.List>
               <style.Link 
-                onClick={() => navigate("/home")}
-                style={url.includes("/home") ? {borderBottom:"2px solid #0771d5"}:{border:"none"}}
+                onClick={() => navigate("/")}
+                style={url[url.length -1] === "/"  ? {borderBottom:"2px solid #0771d5"}:{border:"none"}}
               > Inicio
               </style.Link>
             </style.List>
@@ -51,7 +51,6 @@ const Header = () => {
               > Carrinho
               </style.Link>  
             </style.List>
-            {/* <style.Linked href="">Criar conta</style.Linked> */}
           </style.Nav_List>
         </style.Nav_div>   
         <style.Nav_div> 
