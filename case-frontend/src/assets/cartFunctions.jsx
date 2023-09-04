@@ -85,7 +85,6 @@ export const cartFunctions = () => {
     }else{
       return alert("Preencha a data de entrega")
     };
-    console.log(dateConvert)
     axios.post(Url.createOrder,{
       clientId: token,
       delivery_date: dateConvert,

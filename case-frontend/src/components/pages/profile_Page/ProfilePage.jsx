@@ -13,12 +13,34 @@ export const ProfilePage = () => {
   const navigate = useNavigate();
   const [data,isLoad,errordata] = useRequestData(Url.clientOrder+userId);
 
+  data && data.map( (o) => {/// funcao adiciona um 0 ao dia; :)
+    if(o.order_date[0] < 10 && o.order_date[1] === "/"){
+      o.order_date = `0${o.order_date}`
+    }
+  });
   const renderList = data && !isLoad && data.sort( (a,b) => {
-    if( a.name < b.name ){
+    const day = a.order_date[0] + a.order_date[1];
+    const month = a.order_date[3] +a.order_date[4];
+    const year = a.order_date[6] + a.order_date[7] + a.order_date[8] + a.order_date[9]
+    const date = new Date(`${month}-${day}-${year}`)
+    // --- // olha a gambiarra que fiz pra fazer funcionar a ordenacao por data :)
+    const day2 = b.order_date[0] + b.order_date[1];
+    const month2 = b.order_date[3] +b.order_date[4];
+    const year2 = b.order_date[6] + b.order_date[7] + b.order_date[8] + b.order_date[9]
+    const date2 = new Date(`${month2}-${day2}-${year2}`)
+    if( date < date2 ){
       return -1
     } else{
       return true
     }
+      // vou deixar isso abaixo comitado para provar que a gambiarra de cima é necessario :)
+    // if (a.order_date > b.order_date) {
+    //   return -1;
+    // }
+    // if (a.order_date < b.order_date) {
+    //   return 1;
+    // }
+    // return 0;
   }).map( (order) => {
     return (
       <style.Order_List key={order.id}>
@@ -26,8 +48,7 @@ export const ProfilePage = () => {
         <style.Order>{order.order_date}</style.Order>
       </style.Order_List>
     )
-  })
-
+  })// ------------- //
   return (
   <React.Fragment>
   <Header/>
