@@ -12,8 +12,8 @@ Case desenvolvido como parte final do curso para ganhar o certificado
 
 ## 📚 Deploy no Render
 ## Documentação
-- https://documenter.getpostman.com/view/22376175/2s9Xxtzvpc#e1bc98dd-4539-44e6-bbe3-28c6284a5e35
-
+- BackEnd: https://documenter.getpostman.com/view/22376175/2s9Xxtzvpc#e1bc98dd-4539-44e6-bbe3-28c6284a5e35
+- FrontEnd: https://shopper-frontend.onrender.com
 
 
 #### Porque escolhi este Case?
