@@ -6,9 +6,7 @@ import { Login } from "../pages/login_Page/Login";
 import { SignUp } from "../pages/sign_up/SignUp";
 import { ProfilePage } from "../pages/profile_Page/ProfilePage";
 import { CartPage } from "../pages/cart_page/CartPage";
-import Header from '../header/Header';
-
-
+import { InitialPage } from '../pages/initial_page/InitialPage';
 
 
 
@@ -16,9 +14,9 @@ const RoutesPage = () => {
 
   return (
     <BrowserRouter>
-      <Header/>
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
+        <Route path="/" element={<InitialPage/>}/>
+        <Route path='/home' element={ <HomePage/>}/>
         <Route path="/login" element={ <Login/> }/>
         <Route path="/signup" element={ <SignUp/> }/>
         <Route path="/profile" element={ <ProfilePage/> } />

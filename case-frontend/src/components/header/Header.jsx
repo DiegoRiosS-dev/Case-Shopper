@@ -18,15 +18,12 @@ const Header = () => {
     }else{
       setLogged(false)
     }
-
-  },[count,url])
-  
-
+  },[count,url]);
   const logout = () => {
     localStorage.removeItem("token")
     setCount(count+1)
     url.includes("profile") ? navigate("/login") : {}
-  }
+  };
   
   return (
     <style.Main_Div_Header>
@@ -35,8 +32,8 @@ const Header = () => {
           <style.Nav_List>
             <style.List>
               <style.Link 
-                onClick={() => navigate("/")}
-                style={url[url.length -1] === "/" ? {borderBottom:"2px solid #0771d5"}:{border:"none"}}
+                onClick={() => navigate("/home")}
+                style={url.includes("/home") ? {borderBottom:"2px solid #0771d5"}:{border:"none"}}
               > Inicio
               </style.Link>
             </style.List>

@@ -11,6 +11,7 @@ export const Link = styled.span `
   border-radius: 10px;
   
 `
+// --- --- -- -- -- -- //
 export const List = styled.li `
   list-style: none;
   box-sizing: border-box; 
@@ -20,15 +21,18 @@ export const List = styled.li `
     color: #000
   }
 `
+// --- --- -- -- -- -- //
 export const Nav_List = styled.ul `
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 `
+// --- --- -- -- -- -- //
 export const Nav_div = styled.div `
   margin-top: 30px;
 `
+// --- --- -- -- -- -- //
 export const Nav_Bar = styled.nav `
   height: 82px;
 
@@ -38,7 +42,7 @@ export const Nav_Bar = styled.nav `
     padding-left: 20px;
   }
 `
-
+// --- --- -- -- -- -- //
 export const Main_Div_Header = styled.header `
   background-color: #000;
   width: 100%;
@@ -49,10 +53,10 @@ export const Main_Div_Header = styled.header `
   @media (max-width: 420px) {
     ${Link}{
       font-size: 18px;
-    }
+    }// --- --- -- -- -- -- //
     ${List}{
       margin: 0 2px;
-    }
+    }// --- --- -- -- -- -- //
     ${Nav_Bar}{
       div:first-child{
         padding: 0;
