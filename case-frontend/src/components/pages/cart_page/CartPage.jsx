@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from '../../header/Header';
 import Button from "../../button/Button"
@@ -7,14 +6,12 @@ import * as style from './styleCart';
 import { cartFunctions } from '../../../assets/cartFunctions';
 import Input from '../../form/Input';
 import { useSubmitDataForm } from '../../hoks/useSubmitFormDate';
-// import { Url } from "../../../assets/url";
 
 
 export const CartPage = () => {
   const navigate = useNavigate();
   const {updateQuantProduct, clearCart, sendOrder,  productList, orderMessage }  = cartFunctions();
   const [dateOrder, onChange, clearInput] = useSubmitDataForm( {delivery_date: ""} );
-  // const [orderMessage, setOrderMessage] = useState(null);
   
   const productOrder = productList.map( (p) => {
     return {productId: p.id, qty: p.qty}

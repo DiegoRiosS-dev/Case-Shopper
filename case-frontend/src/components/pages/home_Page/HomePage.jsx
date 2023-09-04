@@ -56,6 +56,7 @@ export const HomePage = () => {
           }
         </React.Fragment>
       }
+      {!isLoad && errordata && <p>{errordata}</p>}
     </style.Home_Section_Control>
   </React.Fragment>   
   )
