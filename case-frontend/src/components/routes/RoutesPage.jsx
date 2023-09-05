@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Route, Routes,} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import { HomePage } from "../pages/home_Page/HomePage";
 import { Login } from "../pages/login_Page/Login";
@@ -15,10 +15,10 @@ const RoutesPage = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={ <HomePage/>}/>
-        <Route path="/login" element={ <Login/> }/>
-        <Route path="/signup" element={ <SignUp/> }/>
         <Route path="/profile" element={ <ProfilePage/> } />
         <Route path="/cart" element={ <CartPage/> } />
+        <Route path="/login" element={ <Login/> }/>
+        <Route path="/signup" element={ <SignUp/> }/>
       </Routes>
     </BrowserRouter>
   )
