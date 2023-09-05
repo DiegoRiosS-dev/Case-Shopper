@@ -1,6 +1,7 @@
 # Case-Shopper
 Case desenvolvido como parte final do curso para ganhar o certificado
 ### OBS: Ao recarregar a pagina do frontend o link retorna notFount creio que isso seja coisa do render
+### Path: Depois de pesquisar bastante consegui resolver o erro citado acima :)
 
 ## BackEnd
 
